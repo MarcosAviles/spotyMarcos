@@ -7,9 +7,11 @@ import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistaComponent } from './components/artista/artista.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
+import {HttpClientModule} from '@angular/common/http'
 
 //Importar rutas
 import {ROUTES} from './app.routes';
+import { SpotifyService } from './services/spotify.service';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,10 @@ import {ROUTES} from './app.routes';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES, {useHash: true})
+    RouterModule.forRoot(ROUTES, {useHash: true}),
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SpotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
